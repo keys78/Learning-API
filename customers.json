@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "company": "seismic ideas",
+        "phone": "555-555-333"
+    },
+    {
+        "id": 2,
+        "name": "Erio  Frolich",
+        "company": "Loftus INc.",
+        "phone": "55-453-5446"
+    },
+    {
+        "id": 3,
+        "name": "Mason Maount",
+        "company": "123 company",
+        "phone": "34-3835-3454"
+    }
+
+]

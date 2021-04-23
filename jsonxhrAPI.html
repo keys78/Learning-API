@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" >
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head >
+<body>
+    <div class="container">
+        <button id="button1">Get Customer</button>
+        <button id="button2">Get Customers</button>
+        <br><br>
+        <h1>Customer</h1>
+        <div id="customer"></div>
+        <h1>Customers</h1>
+        <div id="customers"></div>
+    </div>
+
+
+<script>
+
+document.getElementById('button1').addEventListener('click', loadCustomer);
+
+document.getElementById('button2').addEventListener('click', loadCustomers);
+
+function loadCustomer(e) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'customer.json', true);
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const customer = JSON.parse(this.responseText);
+            const output = `
+            <ul>
+                <li>ID: ${customer.id}</li>
+                <li>Name: ${customer.name}</li>
+                <li>Company: ${customer.company}</li>
+                <li>Phone: ${customer.phone}</li>
+
+            </ul>
+            `
+            document.getElementById('customer').innerHTML = output;
+        }
+    }
+
+
+    xhr.send();
+}
+
+
+//FOR MULTI CUSTOMER
+function loadCustomers(e) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'customers.json', true);
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const customers = JSON.parse(this.responseText);
+
+            let output = '';
+
+            customers.forEach(function(customer){
+              output += `
+            <ul>
+                <li>ID: ${customer.id}</li>
+                <li>Name: ${customer.name}</li>
+                <li>Name: ${customer.company}</li>
+                <li>Name: ${customer.phone}</li>
+
+            </ul>
+            `
+            });
+
+            
+            document.getElementById('customers').innerHTML += output;
+        }
+    }
+
+
+    xhr.send();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
