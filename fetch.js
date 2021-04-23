@@ -49,7 +49,7 @@ document.getElementById('button1').addEventListener('click', getText);
 
 
 
-//FETCH FROM EXTERNAL API
+////FETCH FROM EXTERNAL API
 
  document.getElementById('button3').addEventListener('click', getJSON);
 
